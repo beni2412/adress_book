@@ -7,6 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		AddressBook ab = new AddressBook();
+		
 		System.out.println("Welcome to Address Book");
 		System.out.println("Enter first name: ");
 		String firstName = sc.nextLine();
@@ -25,8 +26,16 @@ public class Main {
 		String phoneNumber = sc.nextLine();
 		System.out.println("Enter email: ");
 		String email = sc.nextLine();
+		
 		Contact x = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
 		ab.addContact(x);
+		
+		List<Contact> cl = new ArrayList<Contact>();
+		cl=ab.viewContacts();
+		System.out.println("The Contact in Address Book is: ");
+		for(Contact z:cl) {
+			System.out.println(z);
+		}
 	}
 
 }
