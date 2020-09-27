@@ -36,6 +36,38 @@ public class Main {
 		for(Contact z:cl) {
 			System.out.println(z);
 		}
+		
+		System.out.println("Üpdate Contact:\nEnter name and all details:");
+		System.out.println("Enter first name: ");
+		String firstName1 = sc.nextLine();
+		System.out.println("Enter last name: ");
+		String lastName1 = sc.nextLine();
+		System.out.println("Enter address: ");
+		String address1 = sc.nextLine();
+		System.out.println("Enter city: ");
+		String city1 = sc.nextLine();
+		System.out.println("Enter state: ");
+		String state1 = sc.nextLine();
+		System.out.println("Enter zip: ");
+		long zip1 = sc.nextLong();
+		System.out.println("Enter phone number: ");
+		sc.nextLine();
+		String phoneNumber1 = sc.nextLine();
+		System.out.println("Enter email: ");
+		String email1 = sc.nextLine();
+		
+		Contact update = new Contact(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1);
+		String s = ab.updateContact(update);
+		System.out.println(s);
+		
+		List<Contact> cli = new ArrayList<Contact>();
+		cli=ab.viewContacts();
+		System.out.println("The new Contact in Address Book is: ");
+		for(Contact z:cli) {
+			System.out.println(z);
+		}
+		
+		
 	}
 
 }
