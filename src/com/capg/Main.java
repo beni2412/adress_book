@@ -8,7 +8,6 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		AddressBook ab = new AddressBook();
 		int c=5;
-		int count =0;
 		System.out.println("Welcome to the Address Book");
 		do {
 			
@@ -16,7 +15,6 @@ public class Main {
 			c=sc.nextInt();
 			switch(c) {
 			case 1:
-				if(count<1) {
 				System.out.println("Enter first name: ");
 				sc.nextLine();
 				String firstName = sc.nextLine();
@@ -35,15 +33,10 @@ public class Main {
 				String phoneNumber = sc.nextLine();
 				System.out.println("Enter email: ");
 				String email = sc.nextLine();
-				count++;
+				
 				Contact x = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
 				ab.addContact(x);
 				break;
-				}
-				else {
-					System.out.println("Can add only one contact");
-					break;
-				}
 				
 			case 2:
 				System.out.println("Update Contact:\nEnter name and all details:");
