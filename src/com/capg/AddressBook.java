@@ -1,6 +1,6 @@
 package com.capg;
 import java.util.*;
-import java.io.*;
+
 
 public class AddressBook {
  private List<Contact> addressBook = new ArrayList<Contact>();
@@ -30,5 +30,14 @@ public class AddressBook {
 		 return "No contact found with this name";
 	 else
 		 return "Contact Updated";
+ }
+ public boolean removeContact(String firstName, String lastName) {
+	 Contact a=new Contact("","","", "", "", 0,"", "");
+	 for(Contact x:addressBook) {
+		 if(x.firstName.equalsIgnoreCase(firstName) && x.lastName.equalsIgnoreCase(lastName)) {
+			 a=x;
+		 }
+	 }
+	 return addressBook.remove(a);
  }
 }
