@@ -12,7 +12,7 @@ public class Main {
 		 		 sc.nextLine();
 		 for(int i =0;i<n;i++) {
 			 
-			 System.out.println("Enter name of address book: ");
+			 System.out.println("Enter name of address book for book no "+(i+1)+" :");
 			 String aname = sc.nextLine();
 			 AddressBook ab = new AddressBook(aname);
 			 
