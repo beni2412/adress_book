@@ -84,7 +84,7 @@ public class Main {
 					System.out.println(z);
 				}
 				break;
-			
+		
 			case 5: break;
 				
 			}
