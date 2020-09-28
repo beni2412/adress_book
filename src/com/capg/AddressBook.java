@@ -3,7 +3,12 @@ import java.util.*;
 
 
 public class AddressBook {
+	public String bookname;
  private List<Contact> addressBook = new ArrayList<Contact>();
+ 
+ public AddressBook(String name) {
+	 bookname = name;
+ }
  
  public void setAddressBook(List<Contact> m) {
 	 this.addressBook= m;
