@@ -9,12 +9,12 @@ public class Main {
 		 List<AddressBook> book = new ArrayList<AddressBook>();
 		 System.out.println("How many address books do you want to make: ");
 		 		 int n = sc.nextInt();
+		 		 sc.nextLine();
 		 for(int i =0;i<n;i++) {
-			 sc.nextLine();
+			 
 			 System.out.println("Enter name of address book: ");
 			 String aname = sc.nextLine();
-			 AddressBook ab = new AddressBook();
-			 ab.bookname = aname;
+			 AddressBook ab = new AddressBook(aname);
 			 
 			 book.add(ab);
 			 }
@@ -31,7 +31,6 @@ public class Main {
 				sc.nextLine();
 				String name1 = sc.nextLine();
 				System.out.println("Enter first name: ");
-				
 				String firstName = sc.nextLine();
 				System.out.println("Enter last name: ");
 				String lastName = sc.nextLine();
@@ -55,7 +54,7 @@ public class Main {
 						 x.addContact(contact);
 					 }
 					 else
-						 System.out.println("no book found");
+						 continue;
 				}
 				break;
 				
@@ -90,7 +89,7 @@ public class Main {
 						 s = x.updateContact(update);
 					 }
 					 else
-						 System.out.println("no book found");
+						 continue;
 				}
 				
 				System.out.println(s);
@@ -110,7 +109,7 @@ public class Main {
 						 b = x.removeContact(fname, lname);
 					 }
 					 else
-						 System.out.println("no book found");
+						 continue;
 				}
 				
 				if(b)
@@ -121,6 +120,7 @@ public class Main {
 				
 			case 4:
 				System.out.println("Enter name of address book: ");
+				sc.nextLine();
 				String name4 = sc.nextLine();
 				
 				List<Contact> cl = new ArrayList<Contact>();
@@ -130,7 +130,7 @@ public class Main {
 						 cl=x.viewContacts();
 					 }
 					 else
-						 System.out.println("no book found");
+						 continue;
 				}
 				
 				
