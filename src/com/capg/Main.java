@@ -6,7 +6,19 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		AddressBook ab = new AddressBook();
+		 List<AddressBook> book = new ArrayList<AddressBook>();
+		 System.out.println("How many address books do you want to make: ");
+		 		 int n = sc.nextInt();
+		 for(int i =0;i<n;i++) {
+			 sc.nextLine();
+			 System.out.println("Enter name of address book: ");
+			 String aname = sc.nextLine();
+			 AddressBook ab = new AddressBook();
+			 ab.bookname = aname;
+			 
+			 book.add(ab);
+			 }
+		
 		int c=5;
 		System.out.println("Welcome to the Address Book");
 		do {
@@ -15,8 +27,11 @@ public class Main {
 			c=sc.nextInt();
 			switch(c) {
 			case 1:
-				System.out.println("Enter first name: ");
+				System.out.println("Enter name of address book: ");
 				sc.nextLine();
+				String name1 = sc.nextLine();
+				System.out.println("Enter first name: ");
+				
 				String firstName = sc.nextLine();
 				System.out.println("Enter last name: ");
 				String lastName = sc.nextLine();
@@ -34,14 +49,23 @@ public class Main {
 				System.out.println("Enter email: ");
 				String email = sc.nextLine();
 				
-				Contact x = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-				ab.addContact(x);
+				Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+				for(AddressBook x: book) {
+					 if(x.bookname.equalsIgnoreCase(name1)) {
+						 x.addContact(contact);
+					 }
+					 else
+						 System.out.println("no book found");
+				}
 				break;
 				
 			case 2:
+				System.out.println("Enter name of address book: ");
+				sc.nextLine();
+				String name2 = sc.nextLine();
 				System.out.println("Update Contact:\nEnter name and all details:");
 				System.out.println("Enter first name: ");
-				sc.nextLine();
+				
 				String firstName1 = sc.nextLine();
 				System.out.println("Enter last name: ");
 				String lastName1 = sc.nextLine();
@@ -60,16 +84,35 @@ public class Main {
 				String email1 = sc.nextLine();
 				
 				Contact update = new Contact(firstName1, lastName1, address1, city1, state1, zip1, phoneNumber1, email1);
-				String s = ab.updateContact(update);
+				String s = "";
+				for(AddressBook x: book) {
+					 if(x.bookname.equalsIgnoreCase(name2)) {
+						 s = x.updateContact(update);
+					 }
+					 else
+						 System.out.println("no book found");
+				}
+				
 				System.out.println(s);
 				break;
 			case 3:
-				System.out.println("Enter first name of contact to remove: ");
+				System.out.println("Enter name of address book: ");
 				sc.nextLine();
+				String name3 = sc.nextLine();
+				System.out.println("Enter first name of contact to remove: ");
+				
 				String fname= sc.nextLine();
 				System.out.println("Enter last name of contact to remove: ");
 				String lname= sc.nextLine();
-				boolean b = ab.removeContact(fname, lname);
+				boolean b = false;
+				for(AddressBook x: book) {
+					 if(x.bookname.equalsIgnoreCase(name3)) {
+						 b = x.removeContact(fname, lname);
+					 }
+					 else
+						 System.out.println("no book found");
+				}
+				
 				if(b)
 					System.out.println("Contact removed");
 				else
@@ -77,8 +120,20 @@ public class Main {
 				break;
 				
 			case 4:
+				System.out.println("Enter name of address book: ");
+				String name4 = sc.nextLine();
+				
 				List<Contact> cl = new ArrayList<Contact>();
-				cl=ab.viewContacts();
+								
+				for(AddressBook x: book) {
+					 if(x.bookname.equalsIgnoreCase(name4)) {
+						 cl=x.viewContacts();
+					 }
+					 else
+						 System.out.println("no book found");
+				}
+				
+				
 				System.out.println("The Contact in Address Book is: ");
 				for(Contact z:cl) {
 					System.out.println(z);
